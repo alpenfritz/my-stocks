@@ -8,7 +8,15 @@
 <br/>
 
 <% if @stock %>
-    <%= @stock.name %>
+    <strong>Company Name: </strong><%= @stock.name %> (<%= @stock.symbol %>)<br/>
+    <strong>Current Ask: </strong><%= @stock.l %><br/>
+    <strong>Earnings Per Share: </strong><%= @stock.eps %><br/>
+    <strong>P/E Ratio: </strong><%= @stock.pe %><br/>
+    <strong>Market Cap: </strong><%= @stock.mc %><br/>
+    <strong>Stock Open: </strong><%= @stock.op %><br/>
+    <strong>Day's Range: </strong><%= @stock.lo %> - <%= @stock.hi %><br/>
+    <strong>Year High: </strong><%= @stock.hi52 %><br/>
+    <strong>Year Low: </strong><%= @stock.lo52 %><br/>
 <% elsif @nothing %>
     <%= @nothing %>
 <% end %>
