@@ -1,12 +1,18 @@
 <%= form_tag root_path, :method => 'POST' do %>
     <div class="form-group">
         <%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50 %>
-        <%= submit_tag 'Submit' %>
+        <%= submit_tag 'Lookup' %>
     </div>
 <% end %>
 
 <br/>
 
-<% stock = StockQuote::Stock.quote("goog") %>
+<% if @stock %>
+    <%= @stock.name %>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% end %>
 
-<%= stock.name %>
+<% if @error %>
+    <%= @error %>
+<% end %>
