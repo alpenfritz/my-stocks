@@ -1,14 +1,20 @@
 body {
-  background-color: #fff;
+  background-color: #F6F7F9;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 14px;
+  // line-height: 18px;
+  line-height: 1.6;
 }
 
-p, ol, ul, td {
+p, ol, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+ul {
+  font-size: 14px;
   line-height: 18px;
 }
 

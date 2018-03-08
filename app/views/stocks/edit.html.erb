@@ -1,6 +1,11 @@
-<h1>Editing Stock</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Editing Stock</h3>
+  </div>
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @stock %> |
-<%= link_to 'Back', stocks_path %>
+<%= link_to 'Show', @stock, class: 'btn btn-warning btn-xs' %>
+<%= link_to 'Back', stocks_path, class: 'btn btn-primary btn-xs' %>
