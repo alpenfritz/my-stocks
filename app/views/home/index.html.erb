@@ -1,22 +1,42 @@
 <%= form_tag root_path, :method => 'POST' do %>
-    <div class="form-group">
-        <%= text_field_tag 'id', nil, size: 50, placeholder: 'Enter Company Ticker Symbol' %>
-        <%= submit_tag 'Lookup', class: 'btn btn-primary' %>
+    <br/>
+    <div class="center form-inline">
+        <div class="input-group">
+        <%= text_field_tag 'id', '', size: 50, placeholder: 'Enter Company Ticker Symbol', class: 'form-control input-lg' %>
+        <span class="input-group-btn">
+        <%= submit_tag 'Lookup', class: 'btn btn-success btn-lg' %>
+        </span>
+        </div>
     </div>
 <% end %>
 
 <br/>
 
 <% if @stock %>
-    <strong>Company Name: </strong><%= @stock.name %> (<%= @stock.symbol %>)<br/>
-    <strong>Current Ask: </strong><%= @stock.l %><br/>
-    <strong>Earnings Per Share: </strong><%= @stock.eps %><br/>
-    <strong>P/E Ratio: </strong><%= @stock.pe %><br/>
-    <strong>Market Cap: </strong><%= @stock.mc %><br/>
-    <strong>Stock Open: </strong><%= @stock.op %><br/>
-    <strong>Day's Range: </strong><%= @stock.lo %> - <%= @stock.hi %><br/>
-    <strong>Year High: </strong><%= @stock.hi52 %><br/>
-    <strong>Year Low: </strong><%= @stock.lo52 %><br/>
+    <br/>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @stock.name %> (<%= @stock.symbol %>)</strong></h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-4">
+            <h1><%= @stock.l %></h1><br/>
+              <strong>Earnings Per Share: </strong><%= @stock.eps %><br/>
+              <strong>P/E Ratio: </strong><%= @stock.pe %><br/>
+              <strong>Market Cap: </strong><%= @stock.mc %><br/>
+              <strong>Stock Open: </strong><%= @stock.op %><br/>
+              <strong>Day's Range: </strong><%= @stock.lo %> - <%= @stock.hi %><br/>
+              <strong>Year High: </strong><%= @stock.hi52 %><br/>
+              <strong>Year Low: </strong><%= @stock.lo52 %><br/>
+            </div>
+            
+            <div class="col-md-8">
+              <br/>
+              <p align="justify"><%= @stock.summary[0]['overview'] %></p>
+            </div>
+        </div>
+    </div>
+
 <% elsif @nothing %>
     <%= @nothing %>
 <% end %>
