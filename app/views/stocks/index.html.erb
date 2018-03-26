@@ -17,7 +17,7 @@
     <% @stocks.each do |stock| %>
       <% if stock.user_id == current_user.id %>
         <% begin %>
-          <% @stock_quote = StockQuote::Stock.batch("quote,company", stock.ticker) %>
+          <% @stock_quote = StockQuote::Stock.batch("quote,company,logo", stock.ticker) %>
         <% rescue %>
           <tr>
             <td><%= link_to 'Error', stock %></td>
@@ -29,7 +29,12 @@
           <% next %>
         <% end %>
         <tr>
-          <td><%= link_to @stock_quote.company_name, stock %></td>
+          <td>
+            <div style="float: left; margin-right: 10px;">
+              <img style="width:auto;height:20px;" src=<%= @stock_quote.url %>>
+            </div>
+            <%= link_to @stock_quote.company_name, stock %>
+          </td>
           <td><%= stock.ticker %></td>
           <td><%= @stock_quote.latest_price %></td>
           <td><%= number_with_delimiter(@stock_quote.market_cap, :delimiter => ',') %></td>
