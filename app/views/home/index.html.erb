@@ -16,23 +16,27 @@
     <br/>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><strong><%= @stock.name %> (<%= @stock.symbol %>)</strong></h3>
+        <h3 class="panel-title">
+          <div style="float: left; margin-right: 10px;">
+            <img style="width:auto;height:20px;" src=<%= @stock.url %>>
+          </div>
+          <strong><%= @stock.company_name %> (<%= @stock.symbol %>)</strong>
+        </h3>
       </div>
       <div class="panel-body">
-        <div class="col-md-4">
-            <h1><%= @stock.l %></h1><br/>
-              <strong>Earnings Per Share: </strong><%= @stock.eps %><br/>
-              <strong>P/E Ratio: </strong><%= @stock.pe %><br/>
-              <strong>Market Cap: </strong><%= @stock.mc %><br/>
-              <strong>Stock Open: </strong><%= @stock.op %><br/>
-              <strong>Day's Range: </strong><%= @stock.lo %> - <%= @stock.hi %><br/>
-              <strong>Year High: </strong><%= @stock.hi52 %><br/>
-              <strong>Year Low: </strong><%= @stock.lo52 %><br/>
+        <div class="col-md-3">
+            <h1><%= @stock.latest_price %></h1><br/>
+              <strong>P/E Ratio: </strong><%= @stock.pe_ratio %><br/>
+              <strong>Market Cap: </strong><%= number_with_delimiter(@stock.market_cap, :delimiter => ',') %><br/>
+              <strong>Stock Open: </strong><%= @stock.open %><br/>
+              <strong>Day's Range: </strong><%= @stock.low %> - <%= @stock.high %><br/>
+              <strong>Year High: </strong><%= @stock.week52_high %><br/>
+              <strong>Year Low: </strong><%= @stock.week52_low %><br/>
             </div>
             
-            <div class="col-md-8">
+            <div class="col-md-9">
               <br/>
-              <p align="justify"><%= @stock.summary[0]['overview'] %></p>
+              <p style="font-size: 18px ;line-height: 1.7em;" align="justify"><%= @stock.description %></p>
             </div>
         </div>
     </div>

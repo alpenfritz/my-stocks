@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'stock_quote', '2.0.0'
+gem 'stock_quote', '~> 2.0.0'
 gem 'devise', '~> 4.4', '>= 4.4.1'
 
 group :development, :test do

@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     elsif
       if params[:id]
         begin
-          @stock = StockQuote::Stock.quote(params[:id])
+          @stock = StockQuote::Stock.batch("quote,company,logo", params[:id])
         rescue StandardError
           @error = 'Symbol does not exist'
         end
